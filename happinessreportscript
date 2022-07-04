@@ -1,0 +1,121 @@
+
+#1
+
+#Loading in the dataset and selecting the countries we will be using for the project 
+
+`2019` <- read.csv("~/Downloads/2019.csv")
+south.asia = `2019`[c(125, 95, 140, 67, 100, 130, 154), ]
+
+
+#2
+
+#Setting up scatterplots for our response and explanatory variables 
+
+par(mfrow = c(2,3))
+plot(`2019`$Score, `2019`$GDP.per.capita, xlab = "Happiness Score", ylab = "GDP per capita")
+plot(`2019`$Score, `2019`$Social.support, xlab = "Happiness Score", ylab = "Social Support")
+plot(`2019`$Score, `2019`$Healthy.life.expectancy, xlab = "Happiness Score", ylab = "Healthy Life Expectancy")
+plot(`2019`$Score, `2019`$Freedom.to.make.life.choices, xlab = "Happiness Score", ylab = "Freedom to Make Choices")
+plot(`2019`$Score, `2019`$Generosity, xlab = "Happiness Score", ylab = "Generosity")
+plot(`2019`$Score, `2019`$Perceptions.of.corruption, xlab = "Happiness Score", ylab = "Perceptions of Corruptions")
+
+
+#3
+
+#Checking for any multicolinearity within our variables 
+
+plot(`2019`$GDP.per.capita, `2019`$Healthy.life.expectancy)
+
+#4
+
+#Running Spearmann's Correlation Test 
+
+cor.test(south.asia$Score, south.asia$GDP.per.capita, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$GDP.per.capita
+## S = 44, p-value = 0.6615
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.2142857
+
+cor.test(south.asia$Score, south.asia$Social.support, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$Social.support
+## S = 26, p-value = 0.2357
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.5357143
+
+cor.test(south.asia$Score, south.asia$Healthy.life.expectancy, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$Healthy.life.expectancy
+## S = 50, p-value = 0.8397
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.1071429
+
+cor.test(south.asia$Score, south.asia$Freedom.to.make.life.choices, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$Freedom.to.make.life.choices
+## S = 62, p-value = 0.8397
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##        rho
+## -0.1071429
+
+cor.test(south.asia$Score, south.asia$Generosity, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$Generosity
+## S = 20, p-value = 0.1389
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.6428571
+
+cor.test(south.asia$Score, south.asia$Perceptions.of.corruption, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$Score and south.asia$Perceptions.of.corruption
+## S = 12, p-value = 0.04802
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.7857143
+
+cor.test(south.asia$GDP.per.capita, south.asia$Healthy.life.expectancy, method = "spearman")
+
+##
+##  Spearman’s rank correlation rho
+##
+## data:  south.asia$GDP.per.capita and south.asia$Healthy.life.expectancy
+## S = 30, p-value = 0.3024
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho
+## 0.4642857
+
+
+
+
+
+
