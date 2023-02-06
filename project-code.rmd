@@ -1,35 +1,31 @@
+World Happiness Project Repository 
 
-#1
 
-#Loading in the dataset and selecting the countries we will be using for the project 
+#1. Loading the dataset and separating columns with South Asian countries into a separate dataframe
 
 `2019` <- read.csv("~/Downloads/2019.csv")
 south.asia = `2019`[c(125, 95, 140, 67, 100, 130, 154), ]
 
-
-#2
-
-#Setting up scatterplots for our response and explanatory variables 
+#2. Creating scatterplots for all countries to estimate the relationship between our explanatory and response variables. Scatterplot outputs can be found on the blog.
 
 par(mfrow = c(2,3))
-plot(`2019`$Score, `2019`$GDP.per.capita, xlab = "Happiness Score", ylab = "GDP per capita")
-plot(`2019`$Score, `2019`$Social.support, xlab = "Happiness Score", ylab = "Social Support")
-plot(`2019`$Score, `2019`$Healthy.life.expectancy, xlab = "Happiness Score", ylab = "Healthy Life Expectancy")
-plot(`2019`$Score, `2019`$Freedom.to.make.life.choices, xlab = "Happiness Score", ylab = "Freedom to Make Choices")
-plot(`2019`$Score, `2019`$Generosity, xlab = "Happiness Score", ylab = "Generosity")
-plot(`2019`$Score, `2019`$Perceptions.of.corruption, xlab = "Happiness Score", ylab = "Perceptions of Corruptions")
-
-
-#3
-
-#Checking for any multicolinearity within our variables 
-
+plot(`2019`$Score, `2019`$GDP.per.capita,
+     xlab = "Happiness Score", ylab = "GDP per capita")
+plot(`2019`$Score, `2019`$Social.support,
+     xlab = "Happiness Score", ylab = "Social Support")
+plot(`2019`$Score, `2019`$Healthy.life.expectancy,
+     xlab = "Happiness Score", ylab = "Healthy Life Expectancy")
+plot(`2019`$Score, `2019`$Freedom.to.make.life.choices,
+     xlab = "Happiness Score", ylab = "Freedom to Make Choices")
+plot(`2019`$Score, `2019`$Generosity,
+     xlab = "Happiness Score", ylab = "Generosity")
+plot(`2019`$Score, `2019`$Perceptions.of.corruption,
+     xlab = "Happiness Score", ylab = "Perceptions of")
 plot(`2019`$GDP.per.capita, `2019`$Healthy.life.expectancy)
-
-#4
-
-#Running Spearmann's Correlation Test 
-
+     
+     
+#3. Conducting Spearman Ranks Correlation tests for South Asian countries to see if the results fall in line with what we observed from the Scatterplots
+     
 cor.test(south.asia$Score, south.asia$GDP.per.capita, method = "spearman")
 
 ##
@@ -112,10 +108,14 @@ cor.test(south.asia$GDP.per.capita, south.asia$Healthy.life.expectancy, method =
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
 ##       rho
-## 0.4642857
-
-
-
-
-
-
+## 0.46428571
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
