@@ -109,7 +109,7 @@ cor.test(south.asia$GDP.per.capita, south.asia$Healthy.life.expectancy, method =
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
 ##       rho
-## 0.4642857
+## 0.46428571
      
      
      
